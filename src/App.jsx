@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Register from './components/Register';
-import Home from './components/Home';
-import Recommendations from './components/Recommendations';
+import Register from './components/Register/Register';
+import Home from './components/Home/Home';
+import Recommendations from './components/Recommendations/Recommendations';
 import './App.css';
-import reactLogo from './assets/react.svg';
 
 function App() {
     return (
@@ -29,4 +27,3 @@ function App() {
 }
 
 export default App;
-

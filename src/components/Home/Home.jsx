@@ -22,7 +22,7 @@ const Home = () => {
             console.log('Preferencia agregada:', response.data);
             setMessage('Preferencia agregada exitosamente.');
             setTimeout(() => {
-                navigate(`/recommendations/${1}`); // Redirigir a la página de recomendaciones
+                navigate(`/recommendations/1`); // Redirigir a la página de recomendaciones con el userId correcto
             }, 2000);
         } catch (error) {
             console.error('Error agregando preferencia:', error);
