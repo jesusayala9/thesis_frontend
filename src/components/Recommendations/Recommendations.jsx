@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './Recommendations.css';
 
 const Recommendations = () => {
     const { userId } = useParams();
@@ -10,7 +11,7 @@ const Recommendations = () => {
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
-                const response = await axios.post('http://localhost:8000/api/recommendations', {
+                const response = await axios.post('http://localhost:3001/api/recommendations', {
                     userId,
                     num_recomendaciones: 10
                 });
