@@ -13,7 +13,7 @@ const Home = () => {
     const handleBuscarPreferencias = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/addPreference', {
+            const response = await axios.post('http://localhost:3001/api/user/addPreference', {
                 userId: 1, // Reemplaza con el ID del usuario actual
                 nombre: nombre || null,
                 marca: marca || null,
