@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +8,8 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -16,9 +19,18 @@ const Index = () => {
         "http://localhost:3001/api/auth/login",
         { correo: email, contraseña: password }
       );
-      localStorage.setItem("token", response.data.token);
+
+      const authToken = response.data.token;
+      localStorage.setItem("token", authToken);
+      setToken(authToken);
+      setUser(response.data.user);
+
+      console.log("Token:", authToken);
+      console.log("Datos del usuario:", response.data.user);
+
       navigate("/home");
     } catch (error) {
+      console.error("Error en el inicio de sesión:", error);
       setError("Credenciales inválidas");
     }
   };
@@ -53,6 +65,24 @@ const Index = () => {
         <div className="separator">O</div>
         <button onClick={() => navigate("/register")}>Registrarse</button>
       </div>
+
+      {/* Mostrar los datos del usuario si están disponibles */}
+      {user && (
+        <div className="user-info">
+          <h2>Información del Usuario</h2>
+          <p>ID: {user.id}</p>
+          <p>Nombre: {user.nombre}</p>
+          <p>Correo: {user.correo}</p>
+        </div>
+      )}
+
+      {/* Mostrar el token si está disponible */}
+      {token && (
+        <div className="token-info">
+          <h2>Token</h2>
+          <p>{token}</p>
+        </div>
+      )}
     </div>
   );
 };
