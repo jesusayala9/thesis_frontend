@@ -1,6 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../api/register.js";
+import "./register.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -32,35 +34,50 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h1>Registro de Usuario</h1>
-      <form onSubmit={handleRegister}>
-        <div>
-          <label>Nombre de Usuario:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Correo Electrónico:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Registrar</button>
-      </form>
-      {message && <p>{message}</p>}
+      <div className="register-box">
+        <h1>Crear Cuenta</h1>
+        <form onSubmit={handleRegister}>
+          <div className="form-group">
+            <label>Nombre de Usuario:</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <div className="email">
+              <label>Correo Electrónico:</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Contraseña:</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <button type="submit">Registrar</button>
+        </form>
+        <p>
+          ¿Ya tienes una cuenta?{" "}
+          <span
+            onClick={() => navigate("/")}
+            style={{
+              textDecoration: "none",
+              color: "blue",
+              cursor: "pointer",
+            }}
+          >
+            Ingresa aquí
+          </span>
+        </p>
+        {message && <p>{message}</p>}
+      </div>
     </div>
   );
 };

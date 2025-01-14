@@ -6,9 +6,10 @@
 }
 
 .index-box {
-  width: 100%;
+  width: 340px;
+  height: 355px;
   max-width: 600px;
-  padding: 20px;
+  padding: 40px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,7 +27,7 @@ h1 {
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 21px;
   text-align: left;
 }
 
@@ -37,7 +38,7 @@ h1 {
 }
 
 .form-group input {
-  width: 100%;
+  width: 95%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -61,4 +62,9 @@ button:hover {
 .separator {
   margin: 20px 0;
   font-weight: bold;
+}
+
+p {
+  padding-top: 6px;
+  text-align: left;
 }
