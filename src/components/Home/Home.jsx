@@ -12,17 +12,16 @@ const Home = () => {
 
     const handleBuscarPreferencias = async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem('token');
         try {
-            const response = await axios.post('http://localhost:3001/api/user/addPreference', {
-                userId: 1, // Reemplaza con el ID del usuario actual
-                nombre: nombre || null,
-                marca: marca || null,
-                cilindraje: cilindraje ? parseFloat(cilindraje) : null,
-            });
+            const response = await axios.post('http://localhost:3001/api/user/addPreference', 
+                { nombre, marca, cilindraje },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
             console.log('Preferencia agregada:', response.data);
             setMessage('Preferencia agregada exitosamente.');
             setTimeout(() => {
-                navigate(`/recommendations/1`); // Redirigir a la página de recomendaciones con el userId correcto
+                navigate(`/recommendations/${response.data.userId}`); // Redirigir a la página de recomendaciones con el userId correcto
             }, 2000);
         } catch (error) {
             console.error('Error agregando preferencia:', error);
