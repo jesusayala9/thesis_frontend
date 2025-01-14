@@ -38,8 +38,7 @@ const Index = () => {
   return (
     <div className="index-container">
       <div className="index-box">
-        <img src="/logo1.png" alt="Logo" className="logo" />
-        <h1>Bienvenido a MotoMatch</h1>
+        <h1>Inicia sesion con tu cuenta</h1>
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label>Correo Electrónico:</label>
@@ -62,8 +61,19 @@ const Index = () => {
           {error && <p className="error">{error}</p>}
           <button type="submit">Iniciar Sesión</button>
         </form>
-        <div className="separator">O</div>
-        <button onClick={() => navigate("/register")}>Registrarse</button>
+        <p>
+          ¿No tienes una cuenta?{" "}
+          <span
+            onClick={() => navigate("/register")}
+            style={{
+              textDecoration: "none",
+              color: "blue",
+              cursor: "pointer",
+            }}
+          >
+            Registrate
+          </span>
+        </p>
       </div>
 
       {/* Mostrar los datos del usuario si están disponibles */}

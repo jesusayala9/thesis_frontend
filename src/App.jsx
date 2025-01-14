@@ -11,11 +11,6 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <header>
-          <img src="/logo1.png" className="logo" alt="Vite logo" />{" "}
-          {/* Ruta relativa desde la raíz */}
-          <h1>Sistema de Recomendación MotoMatch</h1>
-        </header>
         <main>
           <Routes>
             <Route path="/" element={<Index />} />
