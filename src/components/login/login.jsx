@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Index.css";
+import "./login.css";
 
-const Index = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -38,7 +38,7 @@ const Index = () => {
   return (
     <div className="index-container">
       <div className="index-box">
-        <h1>Inicia sesion con tu cuenta</h1>
+        <h1>Inicia sesion </h1>
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label>Correo Electrónico:</label>
@@ -97,4 +97,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Login;
