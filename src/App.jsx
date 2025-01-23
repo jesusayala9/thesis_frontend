@@ -7,6 +7,8 @@ import Sidebar from "./components/shared/sidebar/sidebar";
 import "./App.css";
 import Login from "./components/login/login";
 import Preferences from "./components/preferences/preferences";
+import PasswordRecovery from "./components/reset-password/recuperar-contraseña";
+import MotorcycleCard from "./components/shared/card/card";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/preferences" element={<Preferences />} />
             <Route path="/sidebar" element={<Sidebar />} />
+            <Route path="/password-recovery" element={<PasswordRecovery />} />
+            <Route path="/motorcycle-card" element={<MotorcycleCard />} />
             <Route
               path="/recommendations/:userId"
               element={<Recommendations />}

@@ -3,12 +3,11 @@
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
-  margin-top: -45px;
 }
 
 .index-box {
   width: 380px;
-  height: 390px;
+  height: 400px;
   max-width: 600px;
   padding: 30px;
   padding-top: 50px;
@@ -24,9 +23,9 @@
   margin-bottom: 20px;
 }
 
-h1 {
+.title {
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .form-group {
@@ -37,17 +36,16 @@ h1 {
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
 .form-group input {
-  width: 95%;
+  width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-button {
+.button-login {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -55,10 +53,10 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
-button:hover {
+.button-login:hover {
   background-color: #0056b3;
 }
 
@@ -67,7 +65,7 @@ button:hover {
   font-weight: bold;
 }
 
-p {
-  padding-top: 30px;
+.password-recovery {
+  padding-top: 15px;
   text-align: left;
 }

@@ -1,0 +1,64 @@
+.index-container {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  width: 100%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  overflow: visible;
+}
+
+.index-box {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  padding: 35px;
+  padding-top: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  margin-bottom: -10px;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 2px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-group p {
+  color: #555;
+  font-size: 0.9em;
+}
+
+.form-group strong {
+  color: #222;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
