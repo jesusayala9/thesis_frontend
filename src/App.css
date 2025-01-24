@@ -11,18 +11,6 @@ html {
   background-color: #f0f0f0;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .logo {
   width: 100px;
   height: auto;
@@ -98,7 +86,6 @@ html {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
