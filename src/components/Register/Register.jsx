@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../api/register.js";
-import "./register.css";
+import styles from "./register.module.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -33,20 +33,22 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <div className="register-box">
+    <div className={styles["register-container"]}>
+      <div className={styles["register-box"]}>
         <h1>Crear Cuenta</h1>
         <form onSubmit={handleRegister}>
-          <div className="form-group">
-            <label>Nombre de Usuario:</label>
+          <div className={styles["form-group"]}>
+            <label className={styles["label-name"]}>Nombre de Usuario:</label>
             <input
+              className={styles["input-form"]}
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <div className="email">
+            <div className={styles["email"]}>
               <label>Correo Electrónico:</label>
               <input
+                className={styles["input-form"]}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -55,6 +57,7 @@ const Register = () => {
             <div>
               <label>Contraseña:</label>
               <input
+                className={styles["input-form"]}
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

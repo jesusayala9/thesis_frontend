@@ -20,6 +20,7 @@ const Recommendations = () => {
           }
         );
         setRecommendations(response.data);
+        console.log("Recomendaciones:", response.data); // Imprimir en la consola del navegador
       } catch (error) {
         console.error("Error obteniendo recomendaciones:", error);
         setError("Error obteniendo recomendaciones");
@@ -30,13 +31,13 @@ const Recommendations = () => {
   }, [userId]);
 
   return (
-    <div>
+    <div className="recommendations-container">
       <h1>Recomendaciones</h1>
-      {error && <p>{error}</p>}
-      <ul>
-        {recommendations.map((rec, index) => (
+      {error && <p className="error">{error}</p>}
+      <ul className="recommendations-list">
+        {recommendations.map((motorcycle, index) => (
           <li key={index}>
-            {rec.nombre} - {rec.marca} - {rec.cilindraje}
+            {motorcycle.nombre} - {motorcycle.marca} - {motorcycle.modelo}
           </li>
         ))}
       </ul>

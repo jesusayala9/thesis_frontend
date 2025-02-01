@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Index.css";
+import styles from "./login.module.css";
 
-const Index = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -28,7 +28,7 @@ const Index = () => {
       console.log("Token:", authToken);
       console.log("Datos del usuario:", response.data.user);
 
-      navigate("/home");
+      navigate("/preferences"); // Cambiar la ruta de redirección a /preferences
     } catch (error) {
       console.error("Error en el inicio de sesión:", error);
       setError("Credenciales inválidas");
@@ -36,33 +36,48 @@ const Index = () => {
   };
 
   return (
-    <div className="index-container">
-      <div className="index-box">
-        <h1>Inicia sesion con tu cuenta</h1>
+    <div className={styles["index-container"]}>
+      <div className={styles["index-box"]}>
+        <h1 className={styles["title"]}>Inicia sesión</h1>
         <form onSubmit={handleLogin}>
-          <div className="form-group">
+          <div className={styles["form-group"]}>
             <label>Correo Electrónico:</label>
             <input
+              className={styles["input"]}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className="form-group">
+          <div className={styles["form-group"]}>
             <label>Contraseña:</label>
             <input
+              className={styles["input"]}
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <p
+              className={styles["password-recovery"]}
+              onClick={() => navigate("/password-recovery")}
+              style={{
+                textDecoration: "none",
+                color: "blue",
+                cursor: "pointer",
+              }}
+            >
+              ¿Olvidaste tu contraseña?
+            </p>
           </div>
-          {error && <p className="error">{error}</p>}
-          <button type="submit">Iniciar Sesión</button>
+          {error && <p className={styles["error"]}>{error}</p>}
+          <button className={styles["button-login"]} type="submit">
+            Iniciar Sesión
+          </button>
         </form>
         <p>
-          ¿No tienes una cuenta?{" "}
+          ¿No tienes una cuenta?
           <span
             onClick={() => navigate("/register")}
             style={{
@@ -97,4 +112,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Login;
