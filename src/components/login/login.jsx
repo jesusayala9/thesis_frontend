@@ -21,7 +21,9 @@ const Login = () => {
       );
 
       const authToken = response.data.token;
+      const userId = response.data.user.id; // Obtener el ID del usuario
       localStorage.setItem("token", authToken);
+      localStorage.setItem("userId", userId); // Almacenar el ID del usuario en localStorage
       setToken(authToken);
       setUser(response.data.user);
 

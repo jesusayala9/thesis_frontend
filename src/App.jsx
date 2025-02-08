@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./components/Register/Register";
@@ -22,10 +21,7 @@ function App() {
             <Route path="/sidebar" element={<Sidebar />} />
             <Route path="/password-recovery" element={<PasswordRecovery />} />
             <Route path="/motorcycle-card" element={<MotorcycleCard />} />
-            <Route
-              path="/recommendations/:userId"
-              element={<Recommendations />}
-            />
+            <Route path="/recommendations/:userId" element={<Recommendations />} />
           </Routes>
         </main>
       </div>

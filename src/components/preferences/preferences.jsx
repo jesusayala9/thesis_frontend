@@ -17,14 +17,15 @@ const Preferences = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("Token no encontrado");
+      const userId = localStorage.getItem("userId"); // Obtener el ID del usuario desde localStorage
+      if (!token || !userId) {
+        throw new Error("Token o ID de usuario no encontrado");
       }
 
       const response = await axios.post(
         "http://localhost:3001/api/user/addPreference",
         {
-          userId: 63, // Asegúrate de que este ID sea correcto
+          userId, // Usar el ID del usuario obtenido de localStorage
           nombre: nombre || null,
           marca: marca || null,
           cilindraje: cilindraje ? parseFloat(cilindraje) : null,
@@ -40,7 +41,7 @@ const Preferences = () => {
       console.log("Preferencia agregada:", response.data);
       setMessage("Preferencia agregada exitosamente.");
       setTimeout(() => {
-        navigate(`/recommendations/63`);
+        navigate(`/recommendations/${userId}`); // Redirigir a la página de recomendaciones con el ID del usuario logueado
       }, 2000);
     } catch (error) {
       console.error("Error agregando preferencia:", error);
