@@ -7,14 +7,17 @@ import { IconContext } from "react-icons";
 
 function Sidebar() {
   const navigate = useNavigate();
+  const userId = localStorage.getItem("userId"); // Obtener el ID del usuario logueado desde el localStorage
 
   const handleLogout = () => {
     // Eliminar el token de localStorage
     localStorage.removeItem("token");
+    localStorage.removeItem("userId"); // Eliminar el ID del usuario del localStorage
     console.log("Token eliminado:", localStorage.getItem("token")); // Verificar que el token se elimine
 
     // Redirigir al usuario a la pantalla de login (raíz)
     navigate("/");
+    window.location.reload(); // Recargar la página para actualizar el estado de autenticación
   };
 
   return (
@@ -23,7 +26,7 @@ function Sidebar() {
         <nav className="nav-menu">
           <ul className="nav-menu-items">
             <li className="nav-text">
-              <Link to="/">
+              <Link to={`/profile/${userId}`}>
                 <AiIcons.AiFillHome />
                 <span>Perfil</span>
               </Link>
