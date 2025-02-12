@@ -39,6 +39,19 @@
     margin: 5px 0;
 }
 
+.profile-info label {
+    display: block;
+    margin: 10px 0;
+}
+
+.profile-info input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .image-selection {
     text-align: center;
 }
@@ -72,7 +85,9 @@
     border: 3px solid #007bff;
 }
 
-.toggle-button {
+.toggle-button,
+.edit-button,
+.save-button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -83,6 +98,8 @@
     transition: background-color 0.3s;
 }
 
-.toggle-button:hover {
+.toggle-button:hover,
+.edit-button:hover,
+.save-button:hover {
     background-color: #0056b3;
 }

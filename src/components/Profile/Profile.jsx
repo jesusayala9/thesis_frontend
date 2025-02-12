@@ -8,7 +8,10 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
-  const [showImageOptions, setShowImageOptions] = useState(false); // Estado para manejar la visibilidad de las opciones de imágenes
+  const [showImageOptions, setShowImageOptions] = useState(false);
+  const [isEditing, setIsEditing] = useState(false); // Estado para manejar el modo de edición
+  const [editedName, setEditedName] = useState('');
+  const [editedEmail, setEditedEmail] = useState('');
 
   const images = [
     '/images/profile1.png',
@@ -21,9 +24,11 @@ const Profile = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/api/profile/${id}`);
-        console.log('Datos del usuario:', response.data); // Verificar los datos del usuario
+        console.log('Datos del usuario:', response.data);
         setUser(response.data);
-        setSelectedImage(response.data.profileImage); // Asignar la imagen de perfil actual
+        setSelectedImage(response.data.profileImage);
+        setEditedName(response.data.nombre);
+        setEditedEmail(response.data.correo);
       } catch (error) {
         console.error('Error al obtener el perfil del usuario:', error);
         setError('Error al obtener el perfil del usuario');
@@ -35,8 +40,7 @@ const Profile = () => {
 
   const handleImageSelect = (image) => {
     setSelectedImage(image);
-    // Aquí puedes hacer una solicitud para guardar la imagen seleccionada en el perfil del usuario
-    axios.put(`http://localhost:3001/api/profile/${id}`, { profileImage: image })
+    axios.put(`http://localhost:3001/api/profile/${id}/image`, { profileImage: image }) // Cambiar la ruta para actualizar la imagen de perfil
       .then(response => {
         console.log('Imagen de perfil actualizada:', response.data);
       })
@@ -46,7 +50,23 @@ const Profile = () => {
   };
 
   const toggleImageOptions = () => {
-    setShowImageOptions(!showImageOptions); // Alternar la visibilidad de las opciones de imágenes
+    setShowImageOptions(!showImageOptions);
+  };
+
+  const handleEditToggle = () => {
+    setIsEditing(!isEditing);
+  };
+
+  const handleSaveChanges = () => {
+    axios.put(`http://localhost:3001/api/profile/${id}`, { nombre: editedName, correo: editedEmail })
+      .then(response => {
+        console.log('Datos del usuario actualizados:', response.data);
+        setUser(response.data);
+        setIsEditing(false);
+      })
+      .catch(error => {
+        console.error('Error al actualizar los datos del usuario:', error);
+      });
   };
 
   if (error) {
@@ -65,9 +85,33 @@ const Profile = () => {
           <img src={selectedImage} alt="Imagen de perfil" className="profile-image" />
         </div>
         <div className="profile-info">
-          <p><strong>Nombre:</strong> {user.nombre}</p>
-          <p><strong>Email:</strong> {user.correo}</p>
-          {/* Agrega más campos según sea necesario */}
+          {isEditing ? (
+            <>
+              <label>
+                <strong>Nombre:</strong>
+                <input
+                  type="text"
+                  value={editedName}
+                  onChange={(e) => setEditedName(e.target.value)}
+                />
+              </label>
+              <label>
+                <strong>Email:</strong>
+                <input
+                  type="email"
+                  value={editedEmail}
+                  onChange={(e) => setEditedEmail(e.target.value)}
+                />
+              </label>
+              <button className="save-button" onClick={handleSaveChanges}>Guardar cambios</button>
+            </>
+          ) : (
+            <>
+              <p><strong>Nombre:</strong> {user.nombre}</p>
+              <p><strong>Email:</strong> {user.correo}</p>
+              <button className="edit-button" onClick={handleEditToggle}>Editar perfil</button>
+            </>
+          )}
         </div>
       </div>
       <div className="image-selection">
