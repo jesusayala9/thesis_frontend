@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./login.module.css";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,6 +26,7 @@ const Login = () => {
       localStorage.setItem("userId", userId); // Almacenar el ID del usuario en localStorage
       setToken(authToken);
       setUser(response.data.user);
+      setIsAuthenticated(true); // Actualizar el estado de autenticación
 
       console.log("Token:", authToken);
       console.log("Datos del usuario:", response.data.user);

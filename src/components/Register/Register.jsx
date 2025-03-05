@@ -24,7 +24,7 @@ const Register = () => {
       console.log("Usuario registrado:", response);
       setMessage("Registro exitoso. Redirigiendo...");
       setTimeout(() => {
-        navigate("/home");
+        navigate("/"); // Cambiar la ruta de redirección a la vista de login
       }, 2000);
     } catch (error) {
       console.error("Error registrando usuario:", error);
