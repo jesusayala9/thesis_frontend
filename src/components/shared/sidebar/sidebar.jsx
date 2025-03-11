@@ -35,7 +35,7 @@ function Sidebar() {
             </Link>
           </li>
           <li className="nav-text">
-            <Link to="/reports">
+            <Link to={`/mis-recomendaciones/${userId}`}>
               <IoIcons.IoIosPaper />
               <span>Mis Recomendaciones</span>
             </Link>

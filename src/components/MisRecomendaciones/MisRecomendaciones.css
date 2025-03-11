@@ -1,0 +1,73 @@
+.recommendations-container {
+    padding: 20px;
+    width: 100%;
+    /* Asegurarse de que ocupe todo el ancho */
+    max-width: 1200px;
+    /* Limitar el ancho máximo para una mejor visualización */
+    margin: 0 auto;
+    /* Centrar el contenedor */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Ajustar el tamaño mínimo y máximo de las tarjetas */
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    overflow: visible;
+}
+
+.index-box {
+    width: 100%;
+    max-width: 200px;
+    /* Ajustar el tamaño máximo de las tarjetas */
+    height: auto;
+    padding: 15px;
+    /* Reducir el padding */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    /* Reducir la altura máxima de la imagen */
+    object-fit: cover;
+    margin-bottom: 10px;
+    /* Ajustar el margen inferior */
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 10px;
+    /* Ajustar el margen inferior */
+    font-size: 1.2em;
+    /* Reducir el tamaño de la fuente */
+    color: #333;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.form-group p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.form-group strong {
+    color: #222;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 15px;
+}

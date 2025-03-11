@@ -8,7 +8,8 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* Ajustar el tamaño mínimo y máximo de las tarjetas */
   gap: 20px;
   justify-content: center;
   width: 100%;
@@ -16,11 +17,14 @@
 }
 
 .index-box {
+  position: relative;
+  /* Añadir posición relativa para el contenedor */
   width: 100%;
-  max-width: 380px;
+  max-width: 200px;
+  /* Ajustar el tamaño máximo de las tarjetas */
   height: auto;
-  padding: 35px;
-  padding-top: 5px;
+  padding: 10px;
+  /* Reducir el padding */
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -30,27 +34,78 @@
 .logo {
   width: 100%;
   height: auto;
-  max-height: 200px;
+  max-height: 150px;
+  /* Aumentar la altura máxima de la imagen */
   object-fit: cover;
-  margin-bottom: -10px;
+  margin-bottom: 5px;
+  /* Ajustar el margen inferior */
   border-radius: 8px;
 }
 
 h1 {
   text-align: left;
-  margin-bottom: 2px;
-  font-size: 1.5em;
+  margin-bottom: 5px;
+  /* Ajustar el margen inferior */
+  font-size: 1em;
+  /* Reducir el tamaño de la fuente */
   color: #333;
+}
+
+.toggle-button {
+  background-color: #101f47;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.details {
+  position: absolute;
+  /* Añadir posición absoluta para el contenedor de detalles */
+  top: 100%;
+  /* Posicionar debajo del botón */
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 10;
+  /* Asegurarse de que se superponga sobre las otras tarjetas */
+  opacity: 0;
+  /* Inicialmente oculto */
+  max-height: 0;
+  /* Inicialmente sin altura */
+  overflow: hidden;
+  transition: all 0.3s ease;
+  /* Añadir transición */
+}
+
+.index-box.show .details {
+  opacity: 1;
+  /* Mostrar */
+  max-height: 500px;
+  /* Ajustar la altura máxima */
 }
 
 .form-group {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .form-group p {
   color: #555;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  /* Reducir el tamaño de la fuente */
+  margin: 2px 0;
+  /* Reducir los márgenes */
 }
 
 .form-group strong {

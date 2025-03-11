@@ -9,6 +9,7 @@ import Preferences from "./components/preferences/preferences";
 import PasswordRecovery from "./components/reset-password/recuperar-contraseña";
 import MotorcycleCard from "./components/shared/card/card";
 import Profile from "./components/Profile/Profile"; // Importar el componente Profile
+import MisRecomendaciones from "./components/MisRecomendaciones/MisRecomendaciones"; // Importar el componente MisRecomendaciones
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token') !== null);
@@ -38,6 +39,7 @@ function App() {
               <Route path="/motorcycle-card" element={<MotorcycleCard />} />
               <Route path="/recommendations/:userId" element={<Recommendations />} />
               <Route path="/profile/:id" element={<Profile />} /> {/* Añadir la ruta para el perfil */}
+              <Route path="/mis-recomendaciones/:userId" element={<MisRecomendaciones />} /> {/* Añadir la ruta para Mis Recomendaciones */}
             </Route>
           </Routes>
         </main>
