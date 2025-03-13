@@ -25,12 +25,19 @@ h2 {
     color: #555;
 }
 
+.button-container {
+    display: flex;
+    gap: 10px;
+    /* Espacio entre los botones */
+    margin-bottom: 10px;
+    /* Espacio debajo de los botones */
+}
+
 button {
     background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
-    margin: 10px 0;
     cursor: pointer;
     border-radius: 5px;
     font-size: 1em;
@@ -41,6 +48,14 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
 }
 
 .grid-container {

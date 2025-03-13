@@ -8,10 +8,16 @@ const Preferences = () => {
   const [nombre, setNombre] = useState("");
   const [marca, setMarca] = useState("");
   const [cilindraje, setCilindraje] = useState("");
-  const [precioMin, setPrecioMin] = useState(0);
-  const [precioMax, setPrecioMax] = useState(100000);
+  const [precioMin, setPrecioMin] = useState(null);
+  const [precioMax, setPrecioMax] = useState(null);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  const handlePrecioChange = (e) => {
+    const [min, max] = e.target.value.split('-').map(Number);
+    setPrecioMin(min);
+    setPrecioMax(max);
+  };
 
   const handleBuscarPreferencias = async (e) => {
     e.preventDefault();
@@ -61,7 +67,7 @@ const Preferences = () => {
             <div className={styles["form-group"]}>
               <label>Nombre:</label>
               <input
-                className={styles["input-form"]}
+                className={styles["input-form"]} 
                 type="text"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
@@ -90,30 +96,51 @@ const Preferences = () => {
 
             <div className={styles["form-group"]}>
               <label>Rango de Precio:</label>
-              <div className={styles["slider-container"]}>
+              <div className={styles["checkbox-container"]}>
                 <div>
-                  <label>Mínimo: ${precioMin}</label>
                   <input
-                    type="range"
-                    min="0"
-                    max="100000"
-                    step="1000"
-                    value={precioMin}
-                    onChange={(e) => setPrecioMin(e.target.value)}
-                    className={styles["slider"]}
+                    type="radio"
+                    name="precio"
+                    value="1000000-5000000"
+                    onChange={handlePrecioChange}
                   />
+                  <label>$1,000,000 - $5,000,000</label>
                 </div>
                 <div>
-                  <label>Máximo: ${precioMax}</label>
                   <input
-                    type="range"
-                    min="1000000"
-                    max="3000000"
-                    step="1000"
-                    value={precioMax}
-                    onChange={(e) => setPrecioMax(e.target.value)}
-                    className={styles["slider"]}
+                    type="radio"
+                    name="precio"
+                    value="5000001-10000000"
+                    onChange={handlePrecioChange}
                   />
+                  <label>$5,000,001 - $10,000,000</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="precio"
+                    value="10000001-20000000"
+                    onChange={handlePrecioChange}
+                  />
+                  <label>$10,000,001 - $20,000,000</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="precio"
+                    value="20000001-50000000"
+                    onChange={handlePrecioChange}
+                  />
+                  <label>$20,000,001 - $50,000,000</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="precio"
+                    value="50000001-100000000"
+                    onChange={handlePrecioChange}
+                  />
+                  <label>$50,000,001 - $100,000,000</label>
                 </div>
               </div>
             </div>

@@ -17,6 +17,14 @@ const Profile = () => {
     '/images/profile1.png',
     '/images/profile2.jpeg',
     '/images/profile3.png',
+    '/images/profile4.png',
+    '/images/profile5.png',
+    '/images/profile6.png',
+    '/images/profile7.png',
+    '/images/profile8.png',
+    '/images/profile9.png',
+    '/images/profile10.png',
+    '/images/profile11.png',
     // Agrega más rutas de imágenes según sea necesario
   ];
 

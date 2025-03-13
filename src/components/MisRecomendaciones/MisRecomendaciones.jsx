@@ -32,16 +32,35 @@ const MisRecomendaciones = () => {
     }));
   };
 
+  const deleteRecommendation = async (searchId) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/recomendaciones/${searchId}`);
+      setRecommendations((prevState) => {
+        const newState = { ...prevState };
+        delete newState[searchId];
+        return newState;
+      });
+    } catch (error) {
+      console.error("Error eliminando la recomendación:", error);
+      setError("Error eliminando la recomendación");
+    }
+  };
+
   return (
     <div className="recommendations-container">
-      <h1>Mis Recomendaciones</h1>
+      <h1>Historial De Mis Recomendaciones</h1>
       {error && <p className="error">{error}</p>}
       {Object.keys(recommendations).map((searchId) => (
-        <div key={searchId}>
-          <h2>Búsqueda del {recommendations[searchId].createdAt}</h2>
-          <button onClick={() => toggleVisibility(searchId)}>
-            {visibleSearches[searchId] ? "Ocultar Recomendaciones" : "Ver Recomendaciones"}
-          </button>
+        <div key={searchId} className="recommendation-group">
+          <h2>Búsqueda  {recommendations[searchId].createdAt}</h2>
+          <div className="button-container">
+            <button onClick={() => toggleVisibility(searchId)}>
+              {visibleSearches[searchId] ? "Ocultar Recomendaciones" : "Ver Recomendaciones"}
+            </button>
+            <button onClick={() => deleteRecommendation(searchId)} className="delete-button">
+              Eliminar Recomendación
+            </button>
+          </div>
           {visibleSearches[searchId] && (
             <div className="grid-container">
               {recommendations[searchId].recomendaciones.map((rec) => (
