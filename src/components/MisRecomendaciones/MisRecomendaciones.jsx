@@ -6,8 +6,9 @@ import "./MisRecomendaciones.css";
 
 const MisRecomendaciones = () => {
   const { userId } = useParams();
-  const [recommendations, setRecommendations] = useState([]);
+  const [recommendations, setRecommendations] = useState({});
   const [error, setError] = useState("");
+  const [visibleSearches, setVisibleSearches] = useState({});
 
   useEffect(() => {
     const fetchRecommendations = async () => {
@@ -24,15 +25,32 @@ const MisRecomendaciones = () => {
     fetchRecommendations();
   }, [userId]);
 
+  const toggleVisibility = (searchId) => {
+    setVisibleSearches((prevState) => ({
+      ...prevState,
+      [searchId]: !prevState[searchId],
+    }));
+  };
+
   return (
     <div className="recommendations-container">
       <h1>Mis Recomendaciones</h1>
       {error && <p className="error">{error}</p>}
-      <div className="grid-container">
-        {recommendations.map((motorcycle) => (
-          <MotorcycleCard key={motorcycle.id} motorcycle={motorcycle} />
-        ))}
-      </div>
+      {Object.keys(recommendations).map((searchId) => (
+        <div key={searchId}>
+          <h2>Búsqueda del {recommendations[searchId].createdAt}</h2>
+          <button onClick={() => toggleVisibility(searchId)}>
+            {visibleSearches[searchId] ? "Ocultar Recomendaciones" : "Ver Recomendaciones"}
+          </button>
+          {visibleSearches[searchId] && (
+            <div className="grid-container">
+              {recommendations[searchId].recomendaciones.map((rec) => (
+                <MotorcycleCard key={rec.moto.id} motorcycle={rec.moto} />
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 };
