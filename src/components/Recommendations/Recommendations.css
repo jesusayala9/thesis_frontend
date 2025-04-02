@@ -10,6 +10,8 @@
 .recommendations-container h1 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
 }
 
 .recommendations-container ul {
@@ -20,4 +22,33 @@
 .recommendations-container li {
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.no-recommendations {
+    color: #ff6b6b;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #ffecec;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ff6b6b;
+    box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+.error {
+    color: #ff0000;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.loading {
+    color: #007bff;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
 }
