@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import MotorcycleCard from "../shared/card/card"; // Importa el componente MotorcycleCard
 import "./Recommendations.css";
 
 const Recommendations = () => {
@@ -27,11 +28,19 @@ const Recommendations = () => {
           setError(response.data.message);
           setRecommendations([]);
         } else {
-          setRecommendations(response.data);
-          console.log("Recomendaciones:", response.data);
+          // Ajustar las URLs de las imágenes si son relativas
+          const adjustedRecommendations = response.data.map((moto) => ({
+            ...moto,
+            imagen: moto.imagen?.startsWith("http")
+              ? moto.imagen
+              : `http://localhost:3001${moto.imagen}`, // Ajusta la URL si es relativa
+          }));
+
+          setRecommendations(adjustedRecommendations);
+          console.log("Recomendaciones ajustadas:", adjustedRecommendations);
 
           // Guardar las recomendaciones en la base de datos
-          const motoIds = response.data.map((moto) => moto.id).filter((id) => id !== undefined);
+          const motoIds = adjustedRecommendations.map((moto) => moto.id).filter((id) => id !== undefined);
           if (motoIds.length > 0) {
             try {
               const saveResponse = await axios.post("http://localhost:3001/api/recomendaciones", {
@@ -73,13 +82,17 @@ const Recommendations = () => {
         </div>
       )}
       {!loading && recommendations.length > 0 && (
-        <ul className="recommendations-list">
+        <div className="recommendations-list">
           {recommendations.map((motorcycle, index) => (
-            <li key={index}>
-              {motorcycle.nombre} - {motorcycle.marca} - {motorcycle.modelo}
-            </li>
+            <MotorcycleCard
+              key={index}
+              motorcycle={{
+                ...motorcycle,
+                imagen: motorcycle.imagen || "https://via.placeholder.com/150", // Imagen de marcador de posición si falta la URL
+              }}
+            />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
