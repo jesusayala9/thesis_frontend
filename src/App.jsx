@@ -41,10 +41,11 @@ function App() {
               <Route path="/recommendations/:userId" element={<Recommendations />} />
               <Route path="/profile/:id" element={<Profile />} />
               <Route path="/mis-recomendaciones/:userId" element={<MisRecomendaciones />} />
-              <Route path="/chatbot" element={<ChatBot userId={24} />} /> {/* Nueva ruta para el ChatBot */}
             </Route>
           </Routes>
         </main>
+        {/* ChatBot estará disponible en todas las vistas */}
+        <ChatBot userId={24} />
       </div>
     </Router>
   );
