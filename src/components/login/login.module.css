@@ -3,11 +3,14 @@
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
+  height: 100vh;
+  /* Asegura que ocupe toda la pantalla */
 }
 
 .index-box {
   width: 380px;
-  height: 400px;
+  height: auto;
+  /* Ajusta automáticamente según el contenido */
   max-width: 600px;
   padding: 30px;
   padding-top: 50px;
@@ -18,7 +21,7 @@
 }
 
 .logo {
-  width: 100px;
+  width: 170px;
   height: auto;
   margin-bottom: 20px;
 }

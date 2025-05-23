@@ -6,14 +6,22 @@
 }
 
 .chatbot-toggle {
-    background-color: #007bff;
+    background-color: #f5eeee;
+    /* Cambia este color si necesitas un fondo diferente */
     color: white;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
+    width: 70px;
+    /* Aumenta el ancho del botón */
+    height: 70px;
+    /* Aumenta la altura del botón */
+    font-size: 32px;
+    /* Aumenta el tamaño del logo o ícono dentro del botón */
     cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -105,5 +113,5 @@
 }
 
 .clear-chat-button:hover {
-    color: #0056b3;
+    color: #ffffff;
 }

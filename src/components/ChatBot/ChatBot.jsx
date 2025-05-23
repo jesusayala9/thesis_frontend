@@ -72,10 +72,14 @@ const ChatBot = ({ userId }) => {
 
   return (
     <div className="chatbot">
-      {/* Botón flotante */}
-      <button className="chatbot-toggle" onClick={toggleChat}>
-        💬
-      </button>
+      {/* Imagen flotante */}
+      <img
+        src="/chatlogof.png" // Ruta relativa al archivo en la carpeta `public`
+        alt="Abrir ChatBot"
+        className="chatbot-toggle"
+        onClick={toggleChat}
+        title="Pregúntale al MuseBot" // Tooltip que aparece al pasar el cursor
+      />
 
       {/* Ventana de chat */}
       {isOpen && (
@@ -95,7 +99,7 @@ const ChatBot = ({ userId }) => {
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Escribe tu mensaje..."
+              placeholder="Hola, Soy MuseBot"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   sendMessage(); // Enviar mensaje al presionar Enter

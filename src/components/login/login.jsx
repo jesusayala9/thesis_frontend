@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -41,6 +40,13 @@ const Login = ({ setIsAuthenticated }) => {
   return (
     <div className={styles["index-container"]}>
       <div className={styles["index-box"]}>
+        {/* Logo dentro del contenedor */}
+        <img
+          src="/applogo.png" // Ruta relativa desde la carpeta public
+          alt="App Logo"
+          className={styles["logo"]}
+        />
+
         <h1 className={styles["title"]}>Inicia sesión</h1>
         <form onSubmit={handleLogin}>
           <div className={styles["form-group"]}>
@@ -80,7 +86,7 @@ const Login = ({ setIsAuthenticated }) => {
           </button>
         </form>
         <p>
-          ¿No tienes una cuenta?
+          ¿No tienes una cuenta?{" "}
           <span
             onClick={() => navigate("/register")}
             style={{
@@ -89,7 +95,7 @@ const Login = ({ setIsAuthenticated }) => {
               cursor: "pointer",
             }}
           >
-            Registrate
+            Regístrate
           </span>
         </p>
       </div>
