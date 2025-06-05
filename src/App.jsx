@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Outlet, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Register from "./components/Register/Register";
 import Recommendations from "./components/Recommendations/Recommendations";
-import Sidebar from "./components/shared/sidebar/sidebar";
+import SidebarLayout from "./components/shared/sidebar/sidebarlayout"; // Importa aquí correctamente
 import "./App.css";
 import Login from "./components/login/login";
 import Preferences from "./components/preferences/preferences";
@@ -50,12 +50,5 @@ function App() {
     </Router>
   );
 }
-
-const SidebarLayout = () => (
-  <>
-    <Sidebar />
-    <Outlet />
-  </>
-);
 
 export default App;

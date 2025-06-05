@@ -33,6 +33,12 @@ const PasswordRecovery = () => {
   return (
     <div className={styles["password-container"]}>
       <div className={styles["password-box"]}>
+        {/* Logo de la app */}
+        <img
+          src="/applogo.png"
+          alt="App Logo"
+          className={styles["logo"]}
+        />
         <h1 className={styles["title"]}>Recuperar Contraseña</h1>
         <form onSubmit={handlePasswordRecovery}>
           <div className={styles["form-group"]}>

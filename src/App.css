@@ -1,10 +1,14 @@
 /* src/App.css */
 body,
-html {
+html,
+button,
+input,
+select,
+textarea {
   margin: 0;
   padding: 0;
-
   background-color: #f0f0f0;
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 }
 
 .logo {
@@ -42,4 +46,21 @@ html {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+/* --- AJUSTE PARA SIDEBAR Y CONTENIDO PRINCIPAL --- */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 60px;
+  transition: margin-left 0.3s;
+  padding: 30px 10px 30px 10px;
+}
+
+.nav-menu:hover~.main-content {
+  margin-left: 250px;
 }

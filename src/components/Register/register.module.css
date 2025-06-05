@@ -7,14 +7,25 @@
 
 .register-box {
   width: 380px;
-  height: 420px;
+  min-height: 480px;
+  /* Usar min-height para que crezca si hay más contenido */
   max-width: 600px;
   padding: 30px;
   padding-top: 50px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  text-align: center;
+  /* Centra logo y título */
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
@@ -23,6 +34,11 @@ h1 {
 
 .email {
   padding-top: 15px;
+}
+
+.register-box form {
+  text-align: left;
+  /* Alinea los campos del formulario a la izquierda */
 }
 
 .register-container h1 {

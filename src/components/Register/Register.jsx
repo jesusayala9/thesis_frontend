@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../api/register.js";
@@ -35,6 +34,12 @@ const Register = () => {
   return (
     <div className={styles["register-container"]}>
       <div className={styles["register-box"]}>
+        {/* Logo de la app */}
+        <img
+          src="/applogo.png"
+          alt="App Logo"
+          className={styles["logo"]}
+        />
         <h1>Crear Cuenta</h1>
         <form onSubmit={handleRegister}>
           <div className={styles["form-group"]}>
