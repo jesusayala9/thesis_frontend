@@ -85,7 +85,7 @@ const ChatBot = ({ userId }) => {
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <h4>BikesBot</h4> {/* Cambiado de "Chatbot" a "BikesBot" */}
+            <h4>MuseBot</h4> {}
           </div>
           <div className="chatbot-messages">
             {chatHistory.map((chat, index) => (

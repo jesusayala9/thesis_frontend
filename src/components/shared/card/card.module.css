@@ -55,7 +55,7 @@ h1 {
   background-color: #101f47;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 3px 10px;
   margin: 10px 0;
   cursor: pointer;
   border-radius: 5px;
@@ -69,14 +69,14 @@ h1 {
 .details {
   position: absolute;
   /* Añadir posición absoluta para el contenedor de detalles */
-  top: 100%;
+  top: 90%;
   /* Posicionar debajo del botón */
   left: 0;
   width: 100%;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 1px;
   z-index: 10;
   /* Asegurarse de que se superponga sobre las otras tarjetas */
   opacity: 0;

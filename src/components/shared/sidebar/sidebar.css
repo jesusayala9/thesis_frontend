@@ -1,23 +1,18 @@
 .nav-menu {
   height: 100vh;
   width: 60px;
-  /* Ancho reducido para mostrar solo los iconos */
   position: fixed;
   top: 0;
   left: 0;
   background-color: #101f47;
   transition: width 0.3s ease;
-  /* Transición para el ancho */
   overflow-x: hidden;
-  /* Ocultar el contenido que se desborda horizontalmente */
   z-index: 1000;
   padding-top: 20px;
-  /* Añadir padding superior */
 }
 
 .nav-menu:hover {
   width: 250px;
-  /* Ancho completo al pasar el puntero */
 }
 
 .nav-menu-items {
@@ -31,31 +26,22 @@
   align-items: center;
   padding: 10px 20px;
   color: #fff;
-  /* Letras blancas */
   text-decoration: none;
   transition: background 0.3s ease;
   margin-bottom: 20px;
-  /* Añadir margen inferior para espaciado */
 }
 
 .nav-text a {
   color: #fff;
-  /* Asegurar que los enlaces sean blancos */
   text-decoration: none;
-  /* Quitar el subrayado de los enlaces */
   width: 100%;
-  /* Asegurar que el enlace ocupe todo el espacio disponible */
   display: flex;
-  /* Asegurar que el enlace sea un contenedor flexible */
   align-items: center;
-  /* Alinear los elementos dentro del enlace */
 }
 
 .nav-text a svg {
   min-width: 24px;
-  /* Asegurar que los iconos tengan un ancho mínimo */
   margin-right: 16px;
-  /* Espacio entre el icono y el texto */
 }
 
 .nav-text:hover {
@@ -65,15 +51,12 @@
 .nav-text span {
   margin-left: 16px;
   white-space: nowrap;
-  /* Evitar que el texto se desborde */
   opacity: 0;
   transition: opacity 0.3s ease;
-  /* Transición para la opacidad */
 }
 
 .nav-menu:hover .nav-text span {
   opacity: 1;
-  /* Mostrar el texto al pasar el puntero */
 }
 
 .logout-button-container {
@@ -85,40 +68,69 @@
 
 .logout-button {
   background-color: #ff4d4d;
-  /* Color del botón de cerrar sesión */
   color: white;
   border: none;
-  padding: 10px;
-  cursor: pointer;
   border-radius: 5px;
   font-size: 0.9em;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, width 0.3s ease;
   display: flex;
   align-items: center;
+  height: 44px;
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+  width: 44px;
+  /* Por defecto cuadrado */
   justify-content: center;
+  margin: 0 auto;
+  /* Centra el botón horizontalmente SIEMPRE */
 }
 
 .logout-button svg {
   min-width: 24px;
-  /* Asegurar que el icono tenga un ancho mínimo */
-  margin-right: 0;
-  /* Eliminar el margen derecho */
+  min-height: 24px;
+  margin: 0;
+  display: block;
+  transition: margin 0.3s;
 }
 
 .logout-button:hover {
   background-color: #ff1a1a;
-  /* Color del botón de cerrar sesión al pasar el puntero */
 }
 
 .logout-button span {
   margin-left: 8px;
   opacity: 0;
-  /* Inicialmente oculto */
   transition: opacity 0.3s ease;
-  /* Transición para la opacidad */
+  white-space: nowrap;
+  width: 0;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.nav-menu:hover .logout-button {
+  width: 90%;
+  max-width: 200px;
+  justify-content: center;
+  /* Centra icono y texto */
+  padding-left: 0;
+  /* Elimina padding a la izquierda */
 }
 
 .nav-menu:hover .logout-button span {
   opacity: 1;
-  /* Mostrar el texto al pasar el puntero */
+  width: auto;
+  overflow: visible;
+}
+
+.nav-menu:hover .logout-button svg {
+  margin-right: 8px;
+}
+
+/* Cuando el sidebar está contraído, el botón es cuadrado y el icono centrado */
+.nav-menu:not(:hover) .logout-button {
+  justify-content: center;
+  width: 44px;
 }
