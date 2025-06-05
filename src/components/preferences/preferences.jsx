@@ -98,49 +98,50 @@ const Preferences = () => {
               <label>Rango de Precio:</label>
               <div className={styles["checkbox-container"]}>
                 <div>
+                  <label>$1,000,000 - $5,000,000</label>
                   <input
                     type="radio"
                     name="precio"
                     value="1000000-5000000"
                     onChange={handlePrecioChange}
-                  />
-                  <label>$1,000,000 - $5,000,000</label>
+                  />              
                 </div>
                 <div>
+                  <label>$5,000,001 - $10,000,000</label>
                   <input
                     type="radio"
                     name="precio"
                     value="5000001-10000000"
                     onChange={handlePrecioChange}
                   />
-                  <label>$5,000,001 - $10,000,000</label>
+                  
                 </div>
                 <div>
+                  <label>$10,000,001 - $20,000,000</label>
                   <input
                     type="radio"
                     name="precio"
                     value="10000001-20000000"
                     onChange={handlePrecioChange}
-                  />
-                  <label>$10,000,001 - $20,000,000</label>
+                  />                
                 </div>
                 <div>
+                  <label>$20,000,001 - $50,000,000</label>
                   <input
                     type="radio"
                     name="precio"
                     value="20000001-50000000"
                     onChange={handlePrecioChange}
-                  />
-                  <label>$20,000,001 - $50,000,000</label>
+                  />                 
                 </div>
                 <div>
+                  <label>$50,000,001 - $100,000,000</label>
                   <input
                     type="radio"
                     name="precio"
                     value="50000001-100000000"
                     onChange={handlePrecioChange}
-                  />
-                  <label>$50,000,001 - $100,000,000</label>
+                  />                
                 </div>
               </div>
             </div>

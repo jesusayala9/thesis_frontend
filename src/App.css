@@ -48,7 +48,7 @@ textarea {
   }
 }
 
-/* --- AJUSTE PARA SIDEBAR Y CONTENIDO PRINCIPAL --- */
+
 .main-layout {
   display: flex;
   min-height: 100vh;
