@@ -10,23 +10,24 @@ function Sidebar() {
   const userId = localStorage.getItem("userId");
 
   const handleLogout = () => {
-    // Eliminar el token de localStorage
     localStorage.removeItem("token");
-    localStorage.removeItem("userId"); // Eliminar el ID del usuario del localStorage
-    console.log("Token eliminado:", localStorage.getItem("token")); // Verificar que el token se elimine
-
-    // Redirigir al usuario a la pantalla de login (raíz)
+    localStorage.removeItem("userId");
+    console.log("Token eliminado:", localStorage.getItem("token"));
     navigate("/");
-    window.location.reload(); // Recargar la página para actualizar el estado de autenticación
+    window.location.reload();
   };
 
   if (!userId) {
-    return null; // No renderizar el sidebar si no hay un userId
+    return null;
   }
 
   return (
     <IconContext.Provider value={{ color: "#fff" }}>
       <nav className="nav-menu">
+        {/* Logo de la app arriba del menú */}
+        <div className="sidebar-logo">
+          <img src="/applogo.png" alt="App Logo" />
+        </div>
         <ul className="nav-menu-items">
           <li className="nav-text">
             <Link to={`/profile/${userId}`}>
